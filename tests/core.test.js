@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   generateScale, validateConfig, fluidClamp,
-  exportCSS, exportFluidCSS, exportJSON, exportTailwind
+  exportCSS, exportFluidCSS, exportJSON, exportTailwind, exportSCSS, exportFigmaTokens, RATIOS
 } from "../src/core.js";
 
 test("generates a symmetrical scale around the base", () => {
@@ -47,3 +47,7 @@ test("exports fluid clamp values and a JSON token map", () => {
 test("exports a Tailwind fontSize extension", () => {
   assert.match(exportTailwind(generateScale()), /fontSize/);
 });
+
+test("supports named modular scale ratios",()=>{assert.ok(RATIOS.some(r=>r.name==="Golden Ratio"&&r.value===1.618));assert.ok(RATIOS.length>=8);});
+test("fluid typography bounds are configurable and validated",()=>{const scale=generateScale({fluidMin:.8,fluidMax:1.2});assert.match(fluidClamp(scale.tokens.at(-1),scale.config),/^clamp\(/);assert.throws(()=>generateScale({fluidMin:1.3,fluidMax:1.1}),/Fluid bounds/);});
+test("exports SCSS and Figma Tokens compatible JSON",()=>{const scale=generateScale();assert.match(exportSCSS(scale),/\$font-size-base/);const figma=JSON.parse(exportFigmaTokens(scale));assert.equal(figma.global["font-size-base"].type,"fontSizes");});
