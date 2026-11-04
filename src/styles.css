@@ -1,0 +1,86 @@
+:root {
+  color-scheme: light;
+  --ink: #20231f;
+  --muted: #777c73;
+  --line: #e5e7df;
+  --paper: #f5f5f2;
+  --panel: #fff;
+  --accent: #c5ef69;
+  font-family: "DM Sans", sans-serif;
+  font-synthesis: none;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); }
+button, input { font: inherit; }
+.topbar { height: 72px; padding: 0 6.2vw; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 11px; color: var(--ink); text-decoration: none; font-size: 14px; letter-spacing: -.3px; }
+.brand b { font-weight: 700; }
+.brand-mark { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; background: var(--ink); color: white; font-weight: 800; font-size: 17px; }
+.brand-mark span { color: var(--accent); }
+.top-note, .github-link { font-size: 12px; color: var(--muted); }
+.github-link { color: var(--ink); text-decoration: none; font-weight: 600; }
+.shell { max-width: 1320px; margin: auto; padding: 66px 6.2vw 28px; }
+.intro { max-width: 640px; margin-bottom: 44px; }
+.eyebrow { margin: 0 0 12px; font: 10px "DM Mono", monospace; letter-spacing: 1.1px; color: var(--muted); }
+h1 { margin: 0; font: 800 clamp(48px, 7vw, 82px)/.98 Manrope, sans-serif; letter-spacing: -5px; }
+h1 em { font-style: normal; color: #858d7b; }
+.intro-copy { max-width: 435px; margin: 19px 0 0; color: #686e65; line-height: 1.65; font-size: 14px; }
+.workspace { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 18px; align-items: start; }
+.panel { border: 1px solid var(--line); border-radius: 13px; background: var(--panel); }
+.controls { padding: 23px 22px; }
+.panel-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.panel-heading h2 { margin: 0; font: 700 19px Manrope, sans-serif; letter-spacing: -.5px; }
+.panel-heading .eyebrow { margin-bottom: 5px; }
+.live-dot { font: 9px "DM Mono", monospace; color: #537b20; background: #eff8dc; border-radius: 20px; padding: 6px 8px; }
+.controls label { display: block; margin: 18px 0 0; font-size: 12px; font-weight: 600; }
+.controls label > output { float: right; font: 11px "DM Mono", monospace; color: var(--muted); }
+.unit-field { display: flex; align-items: center; width: 90px; height: 34px; margin-top: 8px; border: 1px solid var(--line); border-radius: 6px; padding: 0 9px; color: var(--muted); font: 11px "DM Mono", monospace; }
+.unit-field input { border: 0; outline: 0; min-width: 0; width: 100%; background: transparent; color: var(--ink); font: inherit; }
+.controls input[type="text"] { width: 100%; height: 36px; margin-top: 8px; border: 1px solid var(--line); border-radius: 6px; padding: 0 10px; outline-color: #9dbb62; }
+input[type="range"] { width: 100%; margin: 14px 0 0; accent-color: #83a63e; }
+.range-labels { display: flex; justify-content: space-between; color: var(--muted); font-weight: 400; }
+.range-labels small, .hint { font-size: 10px; }
+.control-divider { height: 1px; background: var(--line); margin: 24px 0 22px; }
+.panel-heading.compact { margin-bottom: 0; }
+.two-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.two-fields .unit-field { width: 100%; }
+.hint { color: var(--muted); line-height: 1.5; font-weight: 400; }
+.reset-button { margin-top: 20px; border: 0; background: transparent; padding: 0; color: var(--muted); font-size: 11px; cursor: pointer; }
+.results { display: grid; gap: 18px; }
+.preview-panel, .export-panel { padding: 23px 25px; min-width: 0; }
+.summary { color: var(--muted); font: 10px "DM Mono", monospace; }
+.specimen { border-top: 1px solid var(--line); }
+.specimen-row { display: grid; grid-template-columns: 106px minmax(0, 1fr); align-items: center; gap: 12px; min-height: 61px; border-bottom: 1px solid #f0f1ed; overflow: hidden; }
+.specimen-meta { display: flex; flex-direction: column; gap: 4px; }
+.specimen-meta b { font: 11px "DM Mono", monospace; }
+.specimen-meta small { color: var(--muted); font-size: 9px; }
+.specimen-text { white-space: nowrap; line-height: 1.16; letter-spacing: -.045em; font-family: Manrope, sans-serif; font-weight: 700; overflow: hidden; }
+.specimen-text span { margin-left: 5px; font: 9px "DM Mono", monospace; color: #8d9486; letter-spacing: 0; }
+.export-panel .panel-heading { margin-bottom: 17px; }
+.tabs { display: flex; gap: 5px; border-bottom: 1px solid var(--line); }
+.tab { background: transparent; border: 0; padding: 10px 14px; margin-bottom: -1px; color: var(--muted); font-size: 11px; cursor: pointer; border-bottom: 2px solid transparent; }
+.tab.active { color: var(--ink); border-bottom-color: #7b9c3c; font-weight: 700; }
+.code-wrap { position: relative; background: #f7f8f5; border-radius: 7px; margin-top: 13px; min-height: 150px; }
+pre { margin: 0; padding: 17px 120px 17px 17px; overflow: auto; max-height: 230px; color: #394232; font: 11px/1.75 "DM Mono", monospace; white-space: pre; }
+.copy-button { position: absolute; right: 10px; top: 10px; border: 1px solid #dfe4d6; border-radius: 5px; background: white; padding: 7px 10px; font-size: 10px; font-weight: 600; cursor: pointer; }
+.copy-status { min-height: 14px; margin: 8px 0 0; color: #537b20; font-size: 10px; }
+.copy-status.error { color: #b33b34; }
+footer { display: flex; justify-content: space-between; margin-top: 29px; color: #898e85; font: 9px "DM Mono", monospace; letter-spacing: .5px; }
+.footer-dot { color: #99b85b; font-size: 7px; padding: 0 5px; }
+@media (max-width: 850px) {
+  .shell { padding-top: 45px; }
+  .workspace { grid-template-columns: 1fr; }
+  .controls { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; }
+  .controls .panel-heading, .control-divider, .panel-heading.compact, .hint, .reset-button { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .topbar { padding: 0 20px; }
+  .top-note { display: none; }
+  .shell { padding: 40px 18px 22px; }
+  h1 { letter-spacing: -3px; }
+  .controls { display: block; }
+  .preview-panel, .export-panel { padding: 19px 15px; }
+  .specimen-row { grid-template-columns: 78px minmax(0,1fr); }
+  .specimen-meta small { font-size: 8px; }
+  footer { gap: 12px; flex-direction: column; }
+}
