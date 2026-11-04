@@ -1,12 +1,15 @@
 {
   "name": "type-scale-studio",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": false,
   "type": "module",
-  "description": "A modular typography scale generator and design token exporter.",
+  "description": "A responsive typography design system studio with fluid scale generation, font pairing, design token exports and project presets.",
   "scripts": {
     "test": "node --test",
-    "check": "node --check src/core.js && node --check src/studio.js && node --check src/generator.js && node --check src/canvas.js && node --check src/compare.js && node --check src/tokens.js && node --check src/presets.js"
+    "check": "node --check src/core.js && node --check src/studio.js && node --check src/generator.js && node --check src/canvas.js && node --check src/compare.js && node --check src/tokens.js && node --check src/presets.js",
+    "test:browser": "playwright test"
   },
-  "license": "MIT"
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  }
 }
