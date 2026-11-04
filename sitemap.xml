@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://akhilalladi-code.github.io/type-scale-studio/</loc>
-  </url>
+  <url><loc>https://akhilalladi-code.github.io/type-scale-studio/</loc></url>
+  <url><loc>https://akhilalladi-code.github.io/type-scale-studio/generator/</loc></url>
+  <url><loc>https://akhilalladi-code.github.io/type-scale-studio/canvas/</loc></url>
+  <url><loc>https://akhilalladi-code.github.io/type-scale-studio/compare/</loc></url>
+  <url><loc>https://akhilalladi-code.github.io/type-scale-studio/tokens/</loc></url>
+  <url><loc>https://akhilalladi-code.github.io/type-scale-studio/presets/</loc></url>
 </urlset>
