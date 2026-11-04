@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f5f2">
-  <meta name="description" content="Free typography scale generator for designers and developers. Build modular and responsive font scales, preview type sizes, and export CSS variables, fluid clamp(), JSON, and Tailwind tokens.">
-  <title>Free Typography Scale Generator | Type Scale Studio</title>
+  <meta name="description" content="Create a modular typography scale with this free typography scale generator. Preview responsive font sizes and export CSS variables, clamp(), JSON, and Tailwind tokens.">
+  <title>Free Typography Scale Generator &amp; CSS Tool | Type Scale Studio</title>
   <link rel="canonical" href="https://akhilalladi-code.github.io/type-scale-studio/">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:type" content="website">
@@ -34,8 +34,8 @@
   <main class="shell">
     <section class="intro">
       <p class="eyebrow">DESIGN SYSTEM / TYPOGRAPHY</p>
-      <h1>Make every<br><em>size</em> make sense.</h1>
-      <p class="intro-copy">Create a harmonious type scale, test it in context, and take production-ready tokens straight into your next project.</p>
+      <h1>Free typography<br><em>scale generator.</em></h1>
+      <p class="intro-copy">Build a consistent modular type scale, preview a responsive type hierarchy, and export production-ready CSS, fluid clamp(), JSON, and Tailwind tokens. Free to use in your browser.</p>
     </section>
 
     <section class="workspace" aria-label="Typography scale generator">
@@ -79,15 +79,58 @@
       </div>
     </section>
     <section class="panel" aria-labelledby="about-tool" style="margin-top:24px;padding:clamp(22px,4vw,40px)">
-      <p class="eyebrow">A BETTER STARTING POINT FOR TYPE</p>
-      <h2 id="about-tool">A free typography scale generator for consistent design systems</h2>
-      <p>Type Scale Studio helps designers and developers create a modular typography scale from a base font size and scale ratio. Preview heading and body sizes in context, tune the rhythm of your type system, and export reusable design tokens for real projects.</p>
-      <h3>Build responsive typography and export design tokens</h3>
-      <p>Use the fluid CSS export to generate responsive font sizes with <code>clamp()</code>. Choose standard CSS variables, JSON tokens, or a Tailwind theme configuration to bring your type scale into a website, app, or design system.</p>
-      <h3>What is a modular type scale?</h3>
-      <p>A modular type scale is a set of font sizes created with a consistent mathematical ratio. It gives headings, subheadings, and body text a predictable visual relationship, helping interfaces feel more structured and readable.</p>
-      <h3>Is Type Scale Studio free?</h3>
-      <p>Yes. The typography scale generator runs in your browser and is free to use. Your settings and generated tokens stay in the page; no account is required.</p>
+      <p class="eyebrow">FREE DESIGN TOOL / MODULAR TYPOGRAPHY</p>
+      <h2 id="about-tool">Create a modular typography scale for your design system</h2>
+      <p>Type Scale Studio is a free typography scale generator for UI designers, graphic designers, and front-end developers. Set a base font size, choose a mathematical scale ratio, and generate a coordinated set of text sizes for body copy, labels, headings, and display type. Preview the hierarchy immediately, then copy the tokens into your project.</p>
+
+      <nav aria-label="On this page">
+        <p><strong>Explore this guide:</strong> <a href="#how-it-works">How it works</a> · <a href="#scale-ratios">Scale ratios</a> · <a href="#responsive-css">Responsive CSS</a> · <a href="#export-formats">Export formats</a> · <a href="#typography-faq">FAQs</a></p>
+      </nav>
+
+      <h3 id="how-it-works">How to use the typography scale generator</h3>
+      <ol>
+        <li><strong>Choose a base size.</strong> Start with a body text size such as 16px. This is the anchor for the rest of the scale.</li>
+        <li><strong>Set a scale ratio.</strong> Select a subtle or dramatic relationship between adjacent type sizes. A larger ratio creates more contrast between headings and body text.</li>
+        <li><strong>Choose the number of steps.</strong> Generate smaller and larger sizes around the base to cover captions, body text, headings, and display styles.</li>
+        <li><strong>Preview the type hierarchy.</strong> Review the specimen rows and adjust the settings until the scale suits your interface or brand.</li>
+        <li><strong>Export your design tokens.</strong> Copy CSS variables, fluid CSS using <code>clamp()</code>, JSON, or a Tailwind font-size theme.</li>
+      </ol>
+
+      <h3 id="scale-ratios">What is a modular type scale?</h3>
+      <p>A modular type scale is a set of font sizes built by repeatedly multiplying or dividing a base size by the same ratio. This creates a consistent mathematical relationship between text styles. For example, with a 16px base and a 1.25 ratio, the next larger sizes are 20px, 25px, and 31.25px. Smaller steps are calculated by dividing the base by the ratio.</p>
+      <p>Designers use modular scales to create a clear typographic hierarchy without choosing every size independently. The scale is a starting point, not a rule: adjust individual styles when readability, content density, or a specific layout calls for it.</p>
+
+      <h3>Which typography scale ratio should you choose?</h3>
+      <ul>
+        <li><strong>1.067 — minor second:</strong> very subtle steps for dense interfaces and compact dashboards.</li>
+        <li><strong>1.125 — major second:</strong> restrained contrast for applications with many text levels.</li>
+        <li><strong>1.2 — minor third:</strong> balanced hierarchy for websites and product interfaces.</li>
+        <li><strong>1.25 — major third:</strong> clear heading contrast and a useful general-purpose starting point.</li>
+        <li><strong>1.333 — perfect fourth:</strong> more expressive hierarchy for editorial layouts and landing pages.</li>
+        <li><strong>1.5 — perfect fifth:</strong> strong contrast for display-led designs.</li>
+        <li><strong>1.618 — golden ratio:</strong> dramatic jumps for highly expressive typography.</li>
+      </ul>
+      <p>There is no universally correct ratio. Start with 1.2 or 1.25, then inspect real headings and paragraphs at desktop and mobile widths.</p>
+
+      <h3 id="responsive-css">Generate responsive typography with CSS clamp()</h3>
+      <p>A responsive typography generator should help text adapt between viewport sizes rather than simply shrinking every heading. Type Scale Studio's Fluid CSS export creates a <code>clamp()</code> expression for each token, with a minimum and maximum viewport width that you configure. Each generated size interpolates from 90% to 110% of its static token value across that viewport range.</p>
+      <p>CSS <code>clamp()</code> combines a minimum, a preferred fluid value, and a maximum. It lets text scale smoothly while retaining readable bounds. Always test the resulting sizes with your actual content, font family, line height, and layout.</p>
+
+      <h3 id="export-formats">Export CSS typography tokens for your project</h3>
+      <ul>
+        <li><strong>CSS variables:</strong> reusable custom properties in a <code>:root</code> block.</li>
+        <li><strong>Fluid CSS:</strong> responsive custom properties using <code>clamp()</code>.</li>
+        <li><strong>JSON:</strong> structured token values for design systems and build tools.</li>
+        <li><strong>Tailwind:</strong> a font-size theme extension to adapt for your Tailwind configuration.</li>
+      </ul>
+      <p>Use the token prefix field to name variables for your project. For example, a prefix of <code>type</code> creates tokens such as <code>--type-base</code> and <code>--type-lg-2</code>.</p>
+
+      <h3 id="typography-faq">Frequently asked questions</h3>
+      <details><summary>Is this typography scale generator free?</summary><p>Yes. Type Scale Studio is free to use in your browser. No account or payment is required.</p></details>
+      <details><summary>What is the best base font size for a website?</summary><p>16px is a common starting point for body text, but the right base depends on your chosen typeface, audience, layout, and accessibility needs. Preview your actual content before deciding.</p></details>
+      <details><summary>What is the difference between a modular and responsive type scale?</summary><p>A modular scale defines the mathematical relationship between font sizes. A responsive scale also adapts those sizes to the available viewport, for example with CSS <code>clamp()</code>.</p></details>
+      <details><summary>Can I export CSS variables and Tailwind tokens?</summary><p>Yes. Choose CSS, Fluid CSS, JSON, or Tailwind in the export panel and copy the generated code.</p></details>
+      <details><summary>Does this tool upload my settings?</summary><p>The scale is generated in your browser. The tool does not require an account or a project upload to calculate and export the tokens.</p></details>
     </section>
     <footer><span>TYPE SCALE STUDIO <span class="footer-dot">●</span> MADE FOR THE DETAILS</span><span>Build with intention. Design with rhythm.</span></footer>
   </main>
