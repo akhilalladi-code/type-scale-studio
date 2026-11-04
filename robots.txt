@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://akhilalladi-code.github.io/type-scale-studio/sitemap.xml
