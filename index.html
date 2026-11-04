@@ -1,138 +1,23 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f5f2">
-  <meta name="description" content="Create a modular typography scale with this free typography scale generator. Preview responsive font sizes and export CSS variables, clamp(), JSON, and Tailwind tokens.">
-  <title>Free Typography Scale Generator &amp; CSS Tool | Type Scale Studio</title>
-  <link rel="canonical" href="https://akhilalladi-code.github.io/type-scale-studio/">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Free Typography Scale Generator | Type Scale Studio">
-  <meta property="og:description" content="Create modular type scales, preview responsive typography, and export CSS, fluid clamp(), JSON, and Tailwind design tokens.">
-  <meta property="og:url" content="https://akhilalladi-code.github.io/type-scale-studio/">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Free Typography Scale Generator | Type Scale Studio">
-  <meta name="twitter:description" content="Build harmonious modular typography scales and export ready-to-use design tokens.">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Type Scale Studio","url":"https://akhilalladi-code.github.io/type-scale-studio/","applicationCategory":"DesignApplication","operatingSystem":"Any","description":"A free browser-based modular typography scale generator with responsive previews and CSS, JSON, and Tailwind token exports.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="src/styles.css">
-  <script type="module" src="src/app.js"></script>
-</head>
-<body>
-  <header class="topbar">
-    <a class="brand" href="#" aria-label="Type Scale Studio home"><span class="brand-mark">T<span>.</span></span><span>type scale <b>studio</b></span></a>
-    <span class="top-note">A practical typography toolkit</span>
-    <a class="github-link" href="https://github.com/akhilalladi-code/type-scale-studio" target="_blank" rel="noreferrer">View on GitHub ↗</a>
-  </header>
-
-  <main class="shell">
-    <section class="intro">
-      <p class="eyebrow">DESIGN SYSTEM / TYPOGRAPHY</p>
-      <h1>Free typography<br><em>scale generator.</em></h1>
-      <p class="intro-copy">Build a consistent modular type scale, preview a responsive type hierarchy, and export production-ready CSS, fluid clamp(), JSON, and Tailwind tokens. Free to use in your browser.</p>
-    </section>
-
-    <section class="workspace" aria-label="Typography scale generator">
-      <aside class="panel controls">
-        <div class="panel-heading"><div><p class="eyebrow">01 / CONFIGURE</p><h2>Your scale</h2></div><span class="live-dot">LIVE</span></div>
-        <label>Base size <span class="unit-field"><input id="base" type="number" min="8" max="48" step="1" value="16"><span>px</span></span></label>
-        <label>Scale ratio <output id="ratio-value">1.250</output>
-          <input id="ratio" type="range" min="1.067" max="1.618" step="0.001" value="1.25">
-          <span class="range-labels"><small>Subtle</small><small>Dramatic</small></span>
-        </label>
-        <label>Steps above base <output id="steps-value">6</output>
-          <input id="steps" type="range" min="3" max="10" step="1" value="6">
-        </label>
-        <label>Token prefix<input id="prefix" type="text" maxlength="16" value="type" spellcheck="false"></label>
-        <div class="control-divider"></div>
-        <div class="panel-heading compact"><div><p class="eyebrow">02 / FLUID TYPE</p><h2>Responsive range</h2></div></div>
-        <div class="two-fields">
-          <label>Min viewport <span class="unit-field"><input id="min-vw" type="number" min="320" max="1440" value="360"><span>px</span></span></label>
-          <label>Max viewport <span class="unit-field"><input id="max-vw" type="number" min="375" max="2560" value="1440"><span>px</span></span></label>
-        </div>
-        <p class="hint">Fluid sizes interpolate between 90% and 110% of each scale step across the viewport range.</p>
-        <button id="reset" class="reset-button" type="button">↺ Reset defaults</button>
-      </aside>
-
-      <div class="results">
-        <section class="panel preview-panel">
-          <div class="panel-heading"><div><p class="eyebrow">03 / PREVIEW</p><h2>Type specimen</h2></div><span id="scale-summary" class="summary">16px base · 1.25 ratio</span></div>
-          <div id="specimen" class="specimen" aria-live="polite"></div>
-        </section>
-        <section class="panel export-panel">
-          <div class="panel-heading"><div><p class="eyebrow">04 / TAKE IT WITH YOU</p><h2>Export tokens</h2></div></div>
-          <div class="tabs" role="tablist" aria-label="Export format">
-            <button class="tab active" data-format="css" role="tab" aria-selected="true">CSS</button>
-            <button class="tab" data-format="fluid" role="tab" aria-selected="false">Fluid CSS</button>
-            <button class="tab" data-format="json" role="tab" aria-selected="false">JSON</button>
-            <button class="tab" data-format="tailwind" role="tab" aria-selected="false">Tailwind</button>
-          </div>
-          <div class="code-wrap"><pre><code id="export-code"></code></pre><button id="copy" class="copy-button" type="button">Copy code</button></div>
-          <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
-        </section>
-      </div>
-    </section>
-    <section class="panel" aria-labelledby="about-tool" style="margin-top:24px;padding:clamp(22px,4vw,40px)">
-      <p class="eyebrow">FREE DESIGN TOOL / MODULAR TYPOGRAPHY</p>
-      <h2 id="about-tool">Create a modular typography scale for your design system</h2>
-      <p>Type Scale Studio is a free typography scale generator for UI designers, graphic designers, and front-end developers. Set a base font size, choose a mathematical scale ratio, and generate a coordinated set of text sizes for body copy, labels, headings, and display type. Preview the hierarchy immediately, then copy the tokens into your project.</p>
-
-      <nav aria-label="On this page">
-        <p><strong>Explore this guide:</strong> <a href="#how-it-works">How it works</a> · <a href="#scale-ratios">Scale ratios</a> · <a href="#responsive-css">Responsive CSS</a> · <a href="#export-formats">Export formats</a> · <a href="#typography-faq">FAQs</a></p>
-      </nav>
-
-      <h3 id="how-it-works">How to use the typography scale generator</h3>
-      <ol>
-        <li><strong>Choose a base size.</strong> Start with a body text size such as 16px. This is the anchor for the rest of the scale.</li>
-        <li><strong>Set a scale ratio.</strong> Select a subtle or dramatic relationship between adjacent type sizes. A larger ratio creates more contrast between headings and body text.</li>
-        <li><strong>Choose the number of steps.</strong> Generate smaller and larger sizes around the base to cover captions, body text, headings, and display styles.</li>
-        <li><strong>Preview the type hierarchy.</strong> Review the specimen rows and adjust the settings until the scale suits your interface or brand.</li>
-        <li><strong>Export your design tokens.</strong> Copy CSS variables, fluid CSS using <code>clamp()</code>, JSON, or a Tailwind font-size theme.</li>
-      </ol>
-
-      <h3 id="scale-ratios">What is a modular type scale?</h3>
-      <p>A modular type scale is a set of font sizes built by repeatedly multiplying or dividing a base size by the same ratio. This creates a consistent mathematical relationship between text styles. For example, with a 16px base and a 1.25 ratio, the next larger sizes are 20px, 25px, and 31.25px. Smaller steps are calculated by dividing the base by the ratio.</p>
-      <p>Designers use modular scales to create a clear typographic hierarchy without choosing every size independently. The scale is a starting point, not a rule: adjust individual styles when readability, content density, or a specific layout calls for it.</p>
-
-      <h3>Which typography scale ratio should you choose?</h3>
-      <ul>
-        <li><strong>1.067 — minor second:</strong> very subtle steps for dense interfaces and compact dashboards.</li>
-        <li><strong>1.125 — major second:</strong> restrained contrast for applications with many text levels.</li>
-        <li><strong>1.2 — minor third:</strong> balanced hierarchy for websites and product interfaces.</li>
-        <li><strong>1.25 — major third:</strong> clear heading contrast and a useful general-purpose starting point.</li>
-        <li><strong>1.333 — perfect fourth:</strong> more expressive hierarchy for editorial layouts and landing pages.</li>
-        <li><strong>1.5 — perfect fifth:</strong> strong contrast for display-led designs.</li>
-        <li><strong>1.618 — golden ratio:</strong> dramatic jumps for highly expressive typography.</li>
-      </ul>
-      <p>There is no universally correct ratio. Start with 1.2 or 1.25, then inspect real headings and paragraphs at desktop and mobile widths.</p>
-
-      <h3 id="responsive-css">Generate responsive typography with CSS clamp()</h3>
-      <p>A responsive typography generator should help text adapt between viewport sizes rather than simply shrinking every heading. Type Scale Studio's Fluid CSS export creates a <code>clamp()</code> expression for each token, with a minimum and maximum viewport width that you configure. Each generated size interpolates from 90% to 110% of its static token value across that viewport range.</p>
-      <p>CSS <code>clamp()</code> combines a minimum, a preferred fluid value, and a maximum. It lets text scale smoothly while retaining readable bounds. Always test the resulting sizes with your actual content, font family, line height, and layout.</p>
-
-      <h3 id="export-formats">Export CSS typography tokens for your project</h3>
-      <ul>
-        <li><strong>CSS variables:</strong> reusable custom properties in a <code>:root</code> block.</li>
-        <li><strong>Fluid CSS:</strong> responsive custom properties using <code>clamp()</code>.</li>
-        <li><strong>JSON:</strong> structured token values for design systems and build tools.</li>
-        <li><strong>Tailwind:</strong> a font-size theme extension to adapt for your Tailwind configuration.</li>
-      </ul>
-      <p>Use the token prefix field to name variables for your project. For example, a prefix of <code>type</code> creates tokens such as <code>--type-base</code> and <code>--type-lg-2</code>.</p>
-
-      <h3 id="typography-faq">Frequently asked questions</h3>
-      <details><summary>Is this typography scale generator free?</summary><p>Yes. Type Scale Studio is free to use in your browser. No account or payment is required.</p></details>
-      <details><summary>What is the best base font size for a website?</summary><p>16px is a common starting point for body text, but the right base depends on your chosen typeface, audience, layout, and accessibility needs. Preview your actual content before deciding.</p></details>
-      <details><summary>What is the difference between a modular and responsive type scale?</summary><p>A modular scale defines the mathematical relationship between font sizes. A responsive scale also adapts those sizes to the available viewport, for example with CSS <code>clamp()</code>.</p></details>
-      <details><summary>Can I export CSS variables and Tailwind tokens?</summary><p>Yes. Choose CSS, Fluid CSS, JSON, or Tailwind in the export panel and copy the generated code.</p></details>
-      <details><summary>Does this tool upload my settings?</summary><p>The scale is generated in your browser. The tool does not require an account or a project upload to calculate and export the tokens.</p></details>
-    </section>
-    <footer><span>TYPE SCALE STUDIO <span class="footer-dot">●</span> MADE FOR THE DETAILS</span><span>Build with intention. Design with rhythm.</span></footer>
-  </main>
-</body>
-</html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f6f1">
+<title>Type Scale Studio — A Typography Design Workspace</title>
+<meta name="description" content="A premium typography design workspace. Build modular type scales, preview responsive layouts, compare font pairings, manage design tokens and share presets.">
+<link rel="canonical" href="https://akhilalladi-code.github.io/type-scale-studio/"><meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website"><meta property="og:title" content="Type Scale Studio — A Typography Design Workspace"><meta property="og:description" content="Design a better type system. Generate, preview, compare and export responsive typography tokens."><meta property="og:url" content="https://akhilalladi-code.github.io/type-scale-studio/">
+<link rel="stylesheet" href="src/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Type Scale Studio","url":"https://akhilalladi-code.github.io/type-scale-studio/","applicationCategory":"DesignApplication","operatingSystem":"Any","description":"A browser-based typography design workspace for modular scales, responsive previews, font pairings, token exports and shareable presets.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script></head><body>
+<header class="topbar"><a class="brand" href="./"><span class="brand-mark">T<span>.</span></span><span>type scale <b>studio</b></span></a><nav class="nav" aria-label="Main navigation"><a href="./generator/">Generator</a><a href="./canvas/">Canvas</a><a href="./compare/">Compare</a><a href="./tokens/">Tokens</a><a href="./presets/">Presets</a><a class="nav-cta" href="./generator/">Open workspace ↗</a></nav></header>
+<main class="container">
+<section class="hero"><div><p class="eyebrow">A TYPOGRAPHY DESIGN WORKSPACE</p><h1>Make every<br><em>size make sense.</em></h1><p class="hero-copy">A considered space to build your type system. Shape modular scales, explore font pairings, test responsive layouts and turn your decisions into production-ready design tokens.</p><div class="hero-actions"><a class="button-primary" href="./generator/">Start designing ↗</a><a class="button-secondary" href="./canvas/">Explore live canvas</a></div><p class="hero-note">FREE TO USE · NO ACCOUNT REQUIRED · YOUR WORK STAYS IN YOUR BROWSER</p></div>
+<div class="hero-art"><div class="art-top"><span>TYPE SYSTEM / 01</span><span class="art-chip">LIVE SPECIMEN</span></div><div class="art-display">Aa<span>.</span><br>Rhythm<br>in type.</div><div class="art-line"></div><div class="art-samples"><div class="art-sample"><small>DISPLAY</small><b style="font-size:26px">A clear point of view</b></div><div class="art-sample"><small>HEADING</small><b style="font-size:19px">Structure creates clarity</b></div><div class="art-sample"><small>BODY</small><b style="font:13px 'DM Sans'">Details make the system work.</b></div></div></div></section>
+<section><div class="section-head"><div><p class="eyebrow">ONE WORKSPACE / MANY WAYS TO DESIGN</p><h2>Everything your type system needs.</h2></div><p>From the first scale decision to the final token handoff, keep the whole typography workflow connected.</p></div><div class="feature-grid">
+<article class="feature-card"><span class="feature-icon">Aa</span><h3>Premium visual identity</h3><p>Quiet surfaces, purposeful contrast and typography-led layouts designed to keep the work in focus.</p></article><article class="feature-card"><span class="feature-icon">⌘</span><h3>Better workspace</h3><p>Dedicated spaces for generating scales, exploring canvas previews and organizing your design decisions.</p></article><article class="feature-card"><span class="feature-icon">↗</span><h3>Production-ready exports</h3><p>Copy CSS variables, fluid clamp() values, JSON tokens and Tailwind theme configuration.</p></article><article class="feature-card"><span class="feature-icon">▣</span><h3>Responsive refinement</h3><p>Switch between desktop and mobile canvases and judge the hierarchy in context.</p></article><article class="feature-card"><span class="feature-icon">⌕</span><h3>Font pairing exploration</h3><p>Try display and body combinations with a live specimen before committing to a system.</p></article><article class="feature-card"><span class="feature-icon">◇</span><h3>Shareable presets</h3><p>Save useful starting points locally or share a URL that carries your typography configuration.</p></article></div></section>
+<section><div class="section-head"><div><p class="eyebrow">YOUR TOOLKIT</p><h2>Move from idea to system.</h2></div><p>Each workspace has a clear purpose. Move between them without losing the thread.</p></div><div class="tool-grid">
+<a class="tool-card" href="./generator/"><span class="tool-num">01</span><div><h3>Scale generator</h3><p>Set a base size, ratio and step count. Generate a modular hierarchy and export the code.</p></div><span class="tool-arrow">↗</span></a>
+<a class="tool-card" href="./canvas/"><span class="tool-num">02</span><div><h3>Interactive type canvas</h3><p>Preview real headline and body copy, test font pairings and switch viewport sizes.</p></div><span class="tool-arrow">↗</span></a>
+<a class="tool-card" href="./compare/"><span class="tool-num">03</span><div><h3>Scale comparison</h3><p>Compare Minor Third, Major Third and Perfect Fourth systems side by side.</p></div><span class="tool-arrow">↗</span></a>
+<a class="tool-card" href="./tokens/"><span class="tool-num">04</span><div><h3>Token manager</h3><p>Review and edit generated values, then copy CSS or JSON for your design system.</p></div><span class="tool-arrow">↗</span></a>
+<a class="tool-card" href="./presets/"><span class="tool-num">05</span><div><h3>Preset library</h3><p>Start from curated type directions, save your own presets and share configurations.</p></div><span class="tool-arrow">↗</span></a></div></section>
+<section class="cta-band"><div><h2>Good typography is a system.<br>Make yours intentional.</h2><p>Start with a scale. Leave with a system you can ship.</p></div><a class="button-primary" href="./generator/">Open Type Scale Studio ↗</a></section></main>
+<footer class="container footer"><span>TYPE SCALE STUDIO · BUILT FOR THE DETAILS</span><span>Design with rhythm. Build with intention.</span></footer></body></html>
