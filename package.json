@@ -1,0 +1,12 @@
+{
+  "name": "type-scale-studio",
+  "version": "1.0.0",
+  "private": false,
+  "type": "module",
+  "description": "A modular typography scale generator and design token exporter.",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/core.js && node --check src/app.js"
+  },
+  "license": "MIT"
+}
