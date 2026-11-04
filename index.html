@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5f2">
+  <meta name="description" content="Build harmonious modular typography scales and export production-ready design tokens.">
+  <title>Type Scale Studio — Build better type systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles.css">
+  <script type="module" src="src/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Type Scale Studio home"><span class="brand-mark">T<span>.</span></span><span>type scale <b>studio</b></span></a>
+    <span class="top-note">A practical typography toolkit</span>
+    <a class="github-link" href="https://github.com/akhilalladi-code/type-scale-studio" target="_blank" rel="noreferrer">View on GitHub ↗</a>
+  </header>
+
+  <main class="shell">
+    <section class="intro">
+      <p class="eyebrow">DESIGN SYSTEM / TYPOGRAPHY</p>
+      <h1>Make every<br><em>size</em> make sense.</h1>
+      <p class="intro-copy">Create a harmonious type scale, test it in context, and take production-ready tokens straight into your next project.</p>
+    </section>
+
+    <section class="workspace" aria-label="Typography scale generator">
+      <aside class="panel controls">
+        <div class="panel-heading"><div><p class="eyebrow">01 / CONFIGURE</p><h2>Your scale</h2></div><span class="live-dot">LIVE</span></div>
+        <label>Base size <span class="unit-field"><input id="base" type="number" min="8" max="48" step="1" value="16"><span>px</span></span></label>
+        <label>Scale ratio <output id="ratio-value">1.250</output>
+          <input id="ratio" type="range" min="1.067" max="1.618" step="0.001" value="1.25">
+          <span class="range-labels"><small>Subtle</small><small>Dramatic</small></span>
+        </label>
+        <label>Steps above base <output id="steps-value">6</output>
+          <input id="steps" type="range" min="3" max="10" step="1" value="6">
+        </label>
+        <label>Token prefix<input id="prefix" type="text" maxlength="16" value="type" spellcheck="false"></label>
+        <div class="control-divider"></div>
+        <div class="panel-heading compact"><div><p class="eyebrow">02 / FLUID TYPE</p><h2>Responsive range</h2></div></div>
+        <div class="two-fields">
+          <label>Min viewport <span class="unit-field"><input id="min-vw" type="number" min="320" max="1440" value="360"><span>px</span></span></label>
+          <label>Max viewport <span class="unit-field"><input id="max-vw" type="number" min="375" max="2560" value="1440"><span>px</span></span></label>
+        </div>
+        <p class="hint">Fluid sizes interpolate between 90% and 110% of each scale step across the viewport range.</p>
+        <button id="reset" class="reset-button" type="button">↺ Reset defaults</button>
+      </aside>
+
+      <div class="results">
+        <section class="panel preview-panel">
+          <div class="panel-heading"><div><p class="eyebrow">03 / PREVIEW</p><h2>Type specimen</h2></div><span id="scale-summary" class="summary">16px base · 1.25 ratio</span></div>
+          <div id="specimen" class="specimen" aria-live="polite"></div>
+        </section>
+        <section class="panel export-panel">
+          <div class="panel-heading"><div><p class="eyebrow">04 / TAKE IT WITH YOU</p><h2>Export tokens</h2></div></div>
+          <div class="tabs" role="tablist" aria-label="Export format">
+            <button class="tab active" data-format="css" role="tab" aria-selected="true">CSS</button>
+            <button class="tab" data-format="fluid" role="tab" aria-selected="false">Fluid CSS</button>
+            <button class="tab" data-format="json" role="tab" aria-selected="false">JSON</button>
+            <button class="tab" data-format="tailwind" role="tab" aria-selected="false">Tailwind</button>
+          </div>
+          <div class="code-wrap"><pre><code id="export-code"></code></pre><button id="copy" class="copy-button" type="button">Copy code</button></div>
+          <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+        </section>
+      </div>
+    </section>
+    <footer><span>TYPE SCALE STUDIO <span class="footer-dot">●</span> MADE FOR THE DETAILS</span><span>Build with intention. Design with rhythm.</span></footer>
+  </main>
+</body>
+</html>
