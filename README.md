@@ -1,3 +1,7 @@
+![TYPE SCALE STUDIO — Diwali 2026](./assets/diwali-banner.svg)
+
+<p align="center"><a href="https://akhilalladi-code.github.io/diwali-universe/"><strong>🪔 Explore Diwali Universe 2026 · Interactive celebration ↗</strong></a></p>
+
 # Type Scale Studio
 
 A browser-based typography design workspace for building, previewing, managing and shipping responsive type systems.
